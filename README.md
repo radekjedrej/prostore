@@ -38,3 +38,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Start Prisma
 npx prisma studio
+
+--legacy-peer-deps

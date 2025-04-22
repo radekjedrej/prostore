@@ -136,7 +136,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "E:\\react\\prostore\\lib\\generated\\prisma",
+      "value": "E:\\react\\prostore\\prisma\\lib\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -149,31 +149,34 @@ const config = {
         "native": true
       }
     ],
-    "previewFeatures": [],
+    "previewFeatures": [
+      "driverAdapters"
+    ],
     "sourceFilePath": "E:\\react\\prostore\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
     "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "schemaEnvPath": "../../../../.env"
   },
-  "relativePath": "../../../prisma",
+  "relativePath": "../../..",
   "clientVersion": "6.6.0",
   "engineVersion": "f676762280b54cd07c770017ed3711ddde35f37a",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgres://neondb_owner:npg_0nrYwBxq6jfk@ep-summer-recipe-a22kdfvn-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require"
+        "value": null
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../lib/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Product {\n  id          String   @id @default(dbgenerated(\"gen_random_uuid()\")) @db.Uuid\n  name        String\n  slug        String   @unique(map: \"product_slug_idx\")\n  category    String\n  images      String[]\n  brand       String\n  description String\n  stock       Int\n  price       Decimal  @default(0) @db.Decimal(12, 2)\n  rating      Decimal  @default(0) @db.Decimal(3, 2)\n  numReviews  Int      @default(0)\n  isFeatured  Boolean  @default(false)\n  banner      String?\n  createdAt   DateTime @default(now()) @db.Timestamp(6)\n}\n",
-  "inlineSchemaHash": "43711f0dd34acee8ca3d29ce97f9a1fdf3ae2b813abeaf241d32b5d3e8760ab5",
+  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  output          = \"./lib/generated/prisma\"\n  previewFeatures = [\"driverAdapters\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Product {\n  id          String   @id @default(dbgenerated(\"gen_random_uuid()\")) @db.Uuid\n  name        String\n  slug        String   @unique(map: \"product_slug_idx\")\n  category    String\n  images      String[]\n  brand       String\n  description String\n  stock       Int\n  price       Decimal  @default(0) @db.Decimal(12, 2)\n  rating      Decimal  @default(0) @db.Decimal(3, 2)\n  numReviews  Int      @default(0)\n  isFeatured  Boolean  @default(false)\n  banner      String?\n  createdAt   DateTime @default(now()) @db.Timestamp(6)\n}\n",
+  "inlineSchemaHash": "90cc6f5d324310c43135b7b630a43beb72d21c13c56421d71684badeea26d800",
   "copyEngine": true
 }
 config.dirname = '/'
